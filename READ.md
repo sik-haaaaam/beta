@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ==================repository==================
 
 git@github.com:HanByel/FEV_Cluster.git
@@ -97,6 +96,3 @@ git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=864000'
 
 이제 더 이상 비밀번호를 물어보지 않는다. 야호!
-=======
-# beta
->>>>>>> a87c193a93bd005a285ae2f849d46eae6e798eed
