@@ -55,10 +55,10 @@ git add .
 *********커밋중요**********
 
 git commit -m "
-- [F-ev][Cluster] micom protocol
-- apply new micom protocol and fix bgs
-- name : Sung-HanByel
-- date : 2023-05-17
+- [EVSC][beta] yas
+- practice uploading
+- name : Ham-Junsik
+- date : 2023-07-12
 "
 
 git push --all
