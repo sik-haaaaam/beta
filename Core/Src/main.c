@@ -36,7 +36,8 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+uint8_t rxData = 0;
+uint8_t rxData2 = 0;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -45,7 +46,11 @@ UART_HandleTypeDef huart5;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+	HAL_UART_Receive_IT(&huart2, &rxData, 1);
+	HAL_UART_Receive_IT(&huart5, &rxData2, 1);
+}
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,7 +64,8 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+uint8_t txData = 'T';
+uint8_t txData2 = 'T';
 /* USER CODE END 0 */
 
 /**
@@ -95,8 +101,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   uint8_t txData = 'B';
   uint8_t txData2 = 'B';
-  uint8_t rxData = 0;
-  uint8_t rxData2 = 0;
+  HAL_UART_Receive_IT(&huart2, &rxData, 1);
+  HAL_UART_Receive_IT(&huart5, &rxData2, 1);
 
   /* USER CODE END 2 */
 
@@ -104,6 +110,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  txData++;
+	  txData2++;
+	  HAL_Delay(50);
 	  HAL_UART_Transmit(&huart2, &txData, 1, 10);
 	  HAL_UART_Transmit(&huart5, &txData2, 1, 10);
 	  HAL_UART_Receive(&huart2, &rxData, 1, 10);
